@@ -25,6 +25,7 @@
 <script src="./doc-page.js"></script>
 <script>
 (function(){
+  if(window.__navCuaderno) return; window.__navCuaderno=1;
   var pages=[],cur=0,on=true;
   function build(){
     var dp=document.querySelector('doc-page'); if(!dp) return false;
@@ -65,6 +66,7 @@
     return b;
   }
   function ui(){
+    var old=document.getElementById('nav-cuaderno'); if(old) old.remove();
     var wrap=document.createElement('div');
     wrap.id='nav-cuaderno';
     wrap.style.cssText="position:fixed;left:0;right:0;bottom:0;z-index:9999;display:flex;justify-content:center;padding:0 10px calc(12px + env(safe-area-inset-bottom));pointer-events:none;box-sizing:border-box";
@@ -124,6 +126,7 @@
 </script>
 <script>
 (function(){
+  if(window.__zoomInforme) return; window.__zoomInforme=1;
   function fit(){
     var dp=document.querySelector('doc-page'); if(!dp) return false;
     dp.style.zoom='';
